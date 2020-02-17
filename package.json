@@ -1,0 +1,25 @@
+{
+    "name": "analysistop-config",
+    "displayName": "AnalysisTop Config",
+    "description": "Syntax highlighting for AnalysisTop configuration files",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.42.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "topconfig",
+            "aliases": ["AnalysisTop Config", "topconfig"],
+            "extensions": [".topconfig"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "topconfig",
+            "scopeName": "source.topconfig",
+            "path": "./syntaxes/topconfig.tmLanguage.json"
+        }]
+    }
+}
