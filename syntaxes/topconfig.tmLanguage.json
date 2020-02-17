@@ -37,7 +37,7 @@
         "keywords": {
             "patterns": [{
                 "name": "keyword.control.topconfig",
-                "match": "\\b(SUB|SELECTION)\\b"
+                "match": "\\b(LibraryNames|NEvents|FirstEvent|OutputFilename|GRLDir|GRLFile|SUB|SELECTION)\\b"
             }]
         },
         "strings": {

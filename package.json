@@ -2,6 +2,8 @@
     "name": "analysistop-config",
     "displayName": "AnalysisTop Config",
     "description": "Syntax highlighting for AnalysisTop configuration files",
+    "publisher": "0",
+    "repository": "https://github.com/joeycarter/vscode-analysistop-config",
     "version": "0.0.1",
     "engines": {
         "vscode": "^1.42.0"
