@@ -7,3 +7,19 @@
 ## Features
 
 Currently only basic syntax highlighting is supported. Nothing fancy!
+
+## Installing
+
+First, build the extension with VS Code's `vsce` packaging tool. If you do not have `vsce` installed, you can get it with the [Node.js](https://www.npmjs.com/) package manager:
+
+```bash
+$ npm install -g vsce
+```
+
+Then build the extension from the `vscode-analysistop-config` root directory with,
+
+```bash
+$ vsce package
+```
+
+This will create a `.vsix` file that you can use to install as an extension to your editor. From the command palette (<kbd>Ctrl</kbd> + <kbd>Shit</kbd> + <kbd>P</kbd>), enter "Extensions: Install from VSIX" and navigate to the `.vsix` file you just created. You can now use AnalysisTop syntax highlighting!
