@@ -4,7 +4,7 @@
     "description": "Syntax highlighting for AnalysisTop configuration files",
     "publisher": "0",
     "repository": "https://github.com/joeycarter/vscode-analysistop-config",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "engines": {
         "vscode": "^1.42.0"
     },

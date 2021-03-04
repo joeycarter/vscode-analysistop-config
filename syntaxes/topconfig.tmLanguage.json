@@ -1,56 +1,78 @@
 {
-    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-    "name": "AnalysisTop Config",
-    "patterns": [
-        {
-            "include": "#keywords"
-        },
-        {
-            "include": "#comments"
-        },
-        {
-            "include": "#strings"
-        }
-    ],
-    "repository": {
-        "comments": {
-			"begin": "(^\\s+)?(?<=^|\\W)(?<!-)(?=#)(?!#{)",
+	"name": "AnalysisTop Configuration",
+	"version": "0.1.0",
+	"scopeName": "source.topconfig",
+	"information_for_contributors": [
+		"This file is maintained by Joey Carter <joey.snarrcarter@gmail.com>.",
+		"If you want to provide a fix or improvement, please create a pull request."
+	],
+	"patterns": [
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#sections"
+		},
+		{
+			"include": "#configParam"
+		},
+		{
+			"include": "#semicolon"
+		}
+	],
+	"repository": {
+		"codetags": {
+			"match": "(?:\\b(NOTE|HACK|FIXME|BUG|TODO)\\b)",
+			"captures": {
+				"1": {
+					"name": "keyword.codetag.notation.python"
+				}
+			}
+		},
+		"comment": {
+			"name": "comment.line.number-sign.python",
+			"begin": "(\\#)",
 			"beginCaptures": {
 				"1": {
-					"name": "punctuation.whitespace.comment.leading.topconfig"
+					"name": "punctuation.definition.comment.python"
 				}
 			},
-			"end": "(?!\\G)",
+			"end": "($)",
 			"patterns": [
 				{
-					"begin": "#",
-					"beginCaptures": {
-						"0": {
-							"name": "punctuation.definition.comment.topconfig"
-						}
-					},
-					"end": "$",
-					"name": "comment.line.number-sign.topconfig"
+					"include": "#codetags"
+				}
+			],
+			"comment": "Comments"
+		},
+		"sections": {
+			"match": "^\\s*(SUB|SELECTION)\\s+(\\w+)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.topconfig"
+				},
+				"2": {
+					"name": "entity.name.type.struct.topconfig"
+				}
+			},
+			"comment": "Section heading"
+		},
+		"configParam": {
+			"match": "^\\s*([^\\s:]+)",
+			"captures": {
+				"1": {
+					"name": "keyword.control.topconfig"
+				}
+			},
+			"comment": "Match first word in line up to space or colon"
+		},
+		"semicolon": {
+			"patterns": [
+				{
+					"name": "invalid.deprecated.semicolon.topconfig",
+					"match": "\\;$"
 				}
 			]
-		},
-        "keywords": {
-            "patterns": [{
-                "name": "keyword.control.topconfig",
-                "match": "\\b(LibraryNames|NEvents|FirstEvent|OutputFilename|GRLDir|GRLFile|SUB|SELECTION)\\b"
-            }]
-        },
-        "strings": {
-            "name": "string.quoted.double.topconfig",
-            "begin": "\"",
-            "end": "\"",
-            "patterns": [
-                {
-                    "name": "constant.character.escape.topconfig",
-                    "match": "\\\\."
-                }
-            ]
-        }
-    },
-    "scopeName": "source.topconfig"
+		}
+	}
 }
